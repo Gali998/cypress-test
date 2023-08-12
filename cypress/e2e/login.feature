@@ -8,3 +8,10 @@ Feature: Login Feature
     And A user enter the password "secret_sauce"
     And User clicks on the login button
     Then A user will be logged in
+
+    Scenario: Failed Login Attempt
+    Given A user opens the page
+    When A user enter the username "locked_out_user"
+    And A user enter the password "secret_sauce"
+    And User clicks on the login button
+    Then A user will be getting error message
