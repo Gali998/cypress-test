@@ -20,5 +20,9 @@ Then('A user will be logged in', () =>{
     cy.url().should('contains','/inventory.html')
 })
 
+Then('A user will be getting error message', () =>{
+    cy.get('h3').should('have.text','Epic sadface: Sorry, this user has been locked out.')
+})
+
 
 
