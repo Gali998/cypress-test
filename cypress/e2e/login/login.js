@@ -1,19 +1,20 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+const homePage = require('../../pages/homePage')
 
 Given('A user opens the page',()=>{
     cy.visit('/')
 })
 
 When('A user enter the username {string}', (username)=>{
-    cy.get('#user-name').type(username)
+    homePage.typeUsername(username)
 })
 
 Then('A user enter the password {string}', (password) =>{
-    cy.get('#password').type(password)
+    homePage.typePassword(password)
 })
 
 Then('User clicks on the login button', () =>{
-    cy.get('#login-button').click()
+    homePage.clickLogin()
 })
 
 Then('A user will be logged in', () =>{
@@ -21,7 +22,7 @@ Then('A user will be logged in', () =>{
 })
 
 Then('A user will be getting error message', () =>{
-    cy.get('h3').should('have.text','Epic sadface: Sorry, this user has been locked out.')
+    homePage.elements.errorMessage().should('have.text','Epic sadface: Sorry, this user has been locked out.')
 })
 
 
