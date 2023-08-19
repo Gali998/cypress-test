@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 const homePage = require('../../pages/homePage')
+const inventoryPage = require('../../pages/inventoryPage')
 
 Given('A user opens the page',()=>{
     cy.visit('/')
@@ -18,7 +19,7 @@ Then('User clicks on the login button', () =>{
 })
 
 Then('A user will be logged in', () =>{
-    cy.url().should('contains','/inventory.html')
+   inventoryPage.elements.inventoryUrl().should('contains','/inventory.html')
 })
 
 Then('A user will be getting error message', () =>{
